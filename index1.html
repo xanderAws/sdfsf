@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Sesion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css\1.css">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+</script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<header class="header">
+
+    <a href="#" class="imagenes\logo clinica.jpg"> clinica medica </a>
+
+    <nav class="navbar">
+        <a href="index.html">inicio</a>
+        <a href="index.html #services">servicios</a>
+       
+    
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+ 
+ 
+<br><br><br>
+<section>
+    <div class = "container mt-5">
+        <form action="login_post.php" method="POST">
+            <div class = "mb-3">
+                <label for = "txtUsuario" class = "form-label">Usuario: </label>
+                <input type = "text" name = "txtUsuario" required class = "form-control" id = "txtUsuario" aria-describedby = "emailHelpe">
+                <div id = "emailHelp" class = "form-text">Nombre de Usuario</div>
+            </div>
+            <div class = "mb-3">
+                <label for = "txtClave" class = "form-label">Clave:</label>
+                <input type = "password" name = "txtClave" required class = "form-control" id = "txtClave">
+            </div>
+            
+            <button type="submit" name="buttonAcess" class= "btn btn-warning">Ingresar</button>
+            <a href="registroPaciente.html" class="btn btn-warning">crear cuenta</a>
+        <form>
+    </div>
+    </section>
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>enlaces</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> servicios </a>
+            
+        </div>
+  
+</html>

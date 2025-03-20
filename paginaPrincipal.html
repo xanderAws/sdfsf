@@ -1,0 +1,178 @@
+<?php
+require 'Funciones/conn.php';
+//consulta de registros
+$registro = $conn->prepare("select * from registro");
+$registro->execute();
+$registro = $registro->fetchAll();
+
+//consulta de doctores
+$doctores = $conn->prepare("select * from doc");
+$doctores->execute();
+$doctores = $doctores->fetchAll();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css\1.css">
+</head>
+<body>
+<header class="header">
+
+    <a href="#" class="imagenes\logo clinica.jpg"> clinica medica </a>
+
+    <nav class="navbar">
+        <a href="#home">inicio</a>
+        <a href="#services">servicios</a>
+      
+        
+    
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<section class="home" id="home">
+
+    <div class="image">
+        <img src="image/home-img.svg" alt="">
+    </div>
+
+    <div class="content">
+        <h3>Mantente a salvo</h3>
+        <p>El médico que no entiende de almas no entenderá cuerpos<p>
+       
+    </div>
+
+</section>
+
+<section class = "book" id = "book">
+<div class = "row">
+  <div class = "col">
+    <table class="table table-striped table-hover">
+    <thead>
+    <tr class="table-success">
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Edad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($registro as $reg) :?>
+                <tr>
+                    <td align="center"><?php echo $reg['Nombre'] ?></td>
+                    <td><?php echo $reg['Apellido'] ?></td>
+                    <td><?php echo $reg['Edad'] ?></td>
+                </tr>
+    <?php endforeach;?>
+  </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <h2>Doctores</h2>
+
+    <table class="table table-striped table-hover">
+    <thead>
+    <tr class="table-success">
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Especialidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($doctores as $doc) :?>
+                <tr>
+                    <td align="center"><?php echo $doc['NombreDoc'] ?></td>
+                    <td><?php echo $doc['Apellido'] ?></td>
+                    <td><?php echo $doc['Especialidad'] ?></td>
+                </tr>
+    <?php endforeach;?>
+  </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <a href="index.html" class="btn btn-outline-success">Salir</a>
+  </div>
+</div>
+</section>
+
+<section class="services" id="services">
+
+    <h1 class="heading"> nuestros <span>servicios</span> </h1>
+
+    <div class="box-container">
+
+        
+
+        <div class="box">
+            <i class="fas fa-ambulance"></i>
+            <h3>Ambulancias</h3>
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-user-md"></i>
+            <h3>Doctores expertos</h3>
+            
+        </div>
+        <div class="box">
+            <i class="fas fa-pills"></i>
+            <h3>Farmarcia</h3>
+            
+        </div>
+
+        
+
+    </div>
+
+</section>
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>enlaces</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> servicios </a>
+            
+        </div>
+
+        
+
+        <div class="box">
+            <h3>contactos</h3>
+            <a href="#"> <i class="fas fa-phone"></i> numero de telefono  </a>
+            
+           
+            <a href="#"> <i class="fas fa-envelope"></i> correo electronico </a>
+           
+        </div>
+
+        <div class="box">
+            <h3>redes</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+      
+            <a href="#"> <i class="fab fa-instagram"></i>istagram </a>
+        
+        </div>
+
+    </div>
+
+   
+
+</section>
+
+</body>
+</html>

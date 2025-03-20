@@ -1,0 +1,119 @@
+<?php
+include("Funciones/conexion.php");
+
+$miConexion = new Conexion();
+$conn = $miConexion->pdo();
+
+$txtnombre = (isset($_REQUEST['txtnombre']) ? $_REQUEST['txtnombre'] : "");
+$txtapellido = (isset($_REQUEST['txtapellido']) ? $_REQUEST['txtapellido'] : "");
+$txtedad = (isset($_REQUEST['$txtedad']) ? $_REQUEST['txtedad'] : "");
+$txtdui = (isset($_REQUEST['$txtdui']) ? $_REQUEST['txtdui'] : "");
+$txtcorreo = (isset($_REQUEST['$txtcorreo']) ? $_REQUEST['txtcorreo'] : "");
+$txtclave = (isset($_REQUEST['$txtclave']) ? $_REQUEST['txtclave'] : "");
+$control = (isset($_REQUEST['$control']) ? $_REQUEST['control'] : "");
+
+if(isset($_REQUEST['botons']))
+{
+    $control = false;
+
+    $sql = "INSERT INTO
+                REGISTRO(NOMBRE, APELLIDO, EDAD, CLAVE, DUI, CORREO)
+            VALUES('$txtnombre', '$txtapellido', '$txtedad', '$txtdui', '$txtcorreo', '$txtclave')
+            ";
+
+    if(($res = $miConexion->EjecutarConsulta($sql)) > 0)
+    {
+        $control = true;
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive hospital website design </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="css\1.css">
+
+</head>
+<body>
+    
+
+
+<header class="header">
+
+    <a href="#" class="imagenes\logo clinica.jpg"> clinica medica </a>
+
+    <nav class="navbar">
+        <a href="index.html">inicio</a>
+        <a href=" index.html#services">servicios</a>
+ 
+    
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+
+   
+
+<section class="form-register">
+    <form action="" method_exists="POST">
+    <h4>Formulario Registro</h4>
+    <input class="controls" style="color: white;" type="text" name="txtnombre" id="nombres" placeholder="Ingrese su Nombre" require>
+    <input class="controls" style="color: white;" type="text" name="txtapellido" id="apellidos" placeholder="Ingrese su Apellido"require>
+    <input class="controls" style="color: white;" type="text" name="txtedad" id="edad" placeholder="edad"require>
+    <input class="controls" style="color: white;" type="text" name="txtdui" id="dui" placeholder="dui"require>
+    <input class="controls" style="color: white;" type="email" name="txtcorreo" id="correo" placeholder="Ingrese su Correo"require>
+    <input class="controls" style="color: white;" type="password" name="txtclave" id="correo" placeholder="Ingrese su Contraseña"require>
+    <label><input type="checkbox" id="cbox1" value="first_checkbox"> acepta los terminos y condicones</label><br>
+    <input name = "botons" class="botons" type="submit" value="Registrar">
+    <p><a href="inicioSesionCorreo.php">¿Ya tiene Cuenta?</a></p>
+  </section>
+</form>
+
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>enlaces</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> servicios </a>
+            
+        </div>
+
+        
+
+        <div class="box">
+            <h3>contactos</h3>
+            <a href="#"> <i class="fas fa-phone"></i> numero de telefono  </a>
+            
+           
+            <a href="#"> <i class="fas fa-envelope"></i> correo electronico </a>
+           
+        </div>
+
+        <div class="box">
+            <h3>redes</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+      +
+            <a href="#"> <i class="fab fa-instagram"></i>istagram </a>
+        
+        </div>
+
+    </div>
+
+   
+
+</section>
